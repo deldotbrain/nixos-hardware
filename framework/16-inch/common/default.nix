@@ -30,10 +30,14 @@
   # Allow `services.libinput.touchpad.disableWhileTyping` to work correctly.
   # Set unconditionally because libinput can also be configured dynamically via
   # gsettings.
-  environment.etc."libinput/local-overrides.quirks".text = ''
-    [Serial Keyboards]
-    MatchUdevType=keyboard
-    MatchName=Framework Laptop 16 Keyboard Module - ANSI Keyboard
-    AttrKeyboardIntegration=internal
-  '';
+  environment.etc."libinput/local-overrides.quirks" = lib.mkIf
+    (lib.versionOlder pkgs.libinput.version "1.26.0")
+    {
+      text = ''
+        [Serial Keyboards]
+        MatchUdevType=keyboard
+        MatchName=Framework Laptop 16 Keyboard Module - ANSI Keyboard
+        AttrKeyboardIntegration=internal
+      '';
+    };
 }
