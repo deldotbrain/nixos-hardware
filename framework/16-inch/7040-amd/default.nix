@@ -7,4 +7,6 @@
     ../../../common/cpu/amd/raphael/igpu.nix
   ];
 
+  config.hardware.framework.sensorConfigName = "Framework16-AMD.conf";
+
 }

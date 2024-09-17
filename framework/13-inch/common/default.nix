@@ -4,6 +4,7 @@
     ../../../common/pc/laptop/ssd
     ../../kmod.nix
     ../../framework-tool.nix
+    ../../framework-sensor-config.nix
   ];
 
   # Fix TRRS headphones missing a mic

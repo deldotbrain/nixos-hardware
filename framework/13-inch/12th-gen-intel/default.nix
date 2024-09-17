@@ -8,6 +8,8 @@
   config = lib.mkMerge [
     {
       hardware.intelgpu.loadInInitrd = lib.versionOlder config.boot.kernelPackages.kernel.version "6.2";
+
+      hardware.framework.sensorConfigName = "Framework13-Intel11-13thGen.conf";
     }
     # https://community.frame.work/t/tracking-hard-freezing-on-fedora-36-with-the-new-12th-gen-system/20675/391
     (lib.mkIf (lib.versionOlder config.boot.kernelPackages.kernel.version "6.2") {
